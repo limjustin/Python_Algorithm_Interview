@@ -1,30 +1,19 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+
         a = list(s)
-        p1 = 0
-        p2 = len(a) - 1
-        res = False
+        b = []
+        
+        for i in range(len(a)) :
+            if a[i].isalnum() :
+                b.append(a[i].lower())
 
-        while p1 <= p2 :
-            while not a[p1].isalnum() and p1 < len(a) - 1 :
-                p1 = p1 + 1
-            while not a[p2].isalnum() and p2 > 0 :
-                p2 = p2 - 1
-
-            # print(p1, p2)
-
-            if p1 >= p2 :
-                return True
-
-            elif a[p1].upper() != a[p2].upper() :
+        i = 0
+        
+        while i < len(b)/2 :
+            if b[i] != b[-i-1] :
                 return False
+            else  :
+                i = i + 1
 
-            elif p1 >= p2 :
-                return True
-
-            else :
-                res = True
-                p1 = p1 + 1
-                p2 = p2 - 1
-
-        return res
+        return True
